@@ -23,13 +23,26 @@ mongoose.connection.on("disconnected",()=>{
 mongoose.connection.on("connected",()=>{
     console.log("MongoDb connected");
 });
+
 // middlewares
+ 
 app.use(express.json())
  
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/hotels", hotelsRoute);
+
+app.use((err,req,res,next)=>{
+    const errorStatus = err.status || 500
+    const errorMessage = err.message || "something is not right"
+return res.status(errorStatus).json({
+    success: false,
+    status: errorStatus,
+    message: errorMessage,
+    stack: err.stack
+})
+});
 
 app.listen(4550, ()=>{
     connect();
