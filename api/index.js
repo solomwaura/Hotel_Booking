@@ -5,13 +5,14 @@ import authRoute from "./routes/auth.js"
 import usersRoute from "./routes/users.js"
 import roomsRoute from "./routes/rooms.js"
 import hotelsRoute from "./routes/hotels.js"
+import cookieParser from "cookie-parser"
 
 const app = express();
 dotenv.config();
 const connect = async ()=>{
     try {
         await mongoose.connect(process.env.MONGO);
-        console.log("connected to mongodb")
+        
       } catch (error) {
         throw(error);
       }
@@ -24,9 +25,12 @@ mongoose.connection.on("connected",()=>{
     console.log("MongoDb connected");
 });
 
+
+
 // middlewares
  
 app.use(express.json())
+app.use(cookieParser() ) 
  
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
@@ -47,4 +51,5 @@ return res.status(errorStatus).json({
 app.listen(4550, ()=>{
     connect();
     console.log("Listening to port 4550, and connected to backend")
+    console.log("connecting to mongodb using mongoose")
 })
