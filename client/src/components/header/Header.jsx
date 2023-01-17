@@ -1,5 +1,6 @@
 import React from 'react'
 import './header.css';
+import type from 'react';
 import { useState } from 'react';
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
@@ -32,7 +33,7 @@ const Header = () => {
     }
   return (
     <div className='header'>
-        <div className="headerContainer">
+        <div className={ type === "list" ? "headerContainer listMode" : "headerContainer"}>
             <div className="headerList">
                 <div className="headerListItem active" >
                     <FontAwesomeIcon icon={faBed} />
@@ -54,7 +55,10 @@ const Header = () => {
                     <FontAwesomeIcon icon={faTaxi} />
                     <span>Airport Taxis</span>
                 </div>
-            </div> 
+            </div>
+            { type !== "list" &&
+            
+            <>
             <h3 className="headerTitle">A lifetime full of Happynes? It's Marvelant.</h3>
             <p className='headerExp'>Get great discounts. By making a free Booking. </p>
             <button className="headerBtn">Sign Up / Sign In</button>
@@ -117,6 +121,7 @@ const Header = () => {
                 <button className="headerBtn">Search</button>
                 </div>
             </div>
+            </>}
         </div>
     </div>
   )

@@ -1,0 +1,40 @@
+.favourites{
+    display: flex;
+    width: 100%;
+    max-width: 1024px;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.fItem{
+    flex: 1;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.fImg{
+   width: 100%; 
+}
+.fname{
+    font-weight: bold;
+}
+.fcity{
+    font-weight: 300;
+}
+.fprice{
+    font-weight: 500;
+}
+
+.fRating>button{
+    background-color: blue;
+    border: none;
+    margin-right: 10px;
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 3px;
+    color: white;
+}
+
+.fRating>span{
+    font-size: 14px;
+}
