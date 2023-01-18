@@ -1,0 +1,28 @@
+.footer{
+    width: 100%;
+    max-width: 1024px;
+    font-size: 12px;
+
+}
+.fLists{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 50px;
+
+}
+
+.fList{
+    list-style: none;
+    padding: 0;
+}
+.fListItem{
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: navy;
+    font-size: 16px;
+}
+.fcopy{
+    padding: 20px;
+
+}
