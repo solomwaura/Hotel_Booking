@@ -2,12 +2,11 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
+import SearchItem from '../../components/searchItem/SearchItem'
 import './list.css';
 import { useState } from 'react'
 import {format} from "date-fns"
 import { DateRange } from 'react-date-range';
-import SearchItem from '../../components/searchItem/SearchItem';
-
 
 const List = () => {
 
@@ -31,52 +30,50 @@ const List = () => {
             <div className="lsItem">
               <label>Check In Date</label>
               {/* <span onClick={()=>setOpenDate(!openDate)}>{`${format(date[0].starDate, "MM/dd/yyyy")} to 
-              ${format(date[0].endDate, "MM/dd/yyyy")}`}</span> */}
+              ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
              
              { openDate && (<DateRange 
               onChange={(item) => setDate([item.selection])} 
               minDate={new Date()}
               ranges={date}
-              />)}
+              />)} */}
             </div>
             <div className="lsItem">
-              <label className='optionsTitle'>Options</label>
-              <div className="lsOptions">
-                <div className="lsOptionItem">
-                  <span className="lsOptiontext">Min Price <small>per night</small></span>
-                  <input type="number" className="lsOptionInput" />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptiontext">Max Price <small>per night</small></span>
-                  <input type="number" className="lsOptionInput" />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptiontext">Adult</span>
-                  <input type="number" min={1} className="lsOptionInput" placeholder={options.adult}/>
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptiontext">Children</span>
-                  <input type="number" min={0}  className="lsOptionInput" placeholder={options.childrens}/>
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptiontext">Rooms</span>
-                  <input type="number" min={1}  className="lsOptionInput" placeholder={options.rooms} />
-                </div>
+              <label>Options</label>
+              <div className="lsOptionItem">
+                <span className="lsOptiontext">Min Price <small>per night</small></span>
+                <input type="number" className="lsOptionInput" />
               </div>
-              
+              <div className="lsOptionItem">
+                <span className="lsOptiontext">Max Price <small>per night</small></span>
+                <input type="number" className="lsOptionInput" />
+              </div>
+              <div className="lsOptionItem">
+                <span className="lsOptiontext">Adult</span>
+                <input type="number" min={1} className="lsOptionInput" placeholder={options.adult}/>
+              </div>
+              <div className="lsOptionItem">
+                <span className="lsOptiontext">Children</span>
+                <input type="number" min={0}  className="lsOptionInput" placeholder={options.childrens}/>
+              </div>
+              <div className="lsOptionItem">
+                <span className="lsOptiontext">Rooms</span>
+                <input type="number" min={1}  className="lsOptionInput" placeholder={options.rooms} />
+              </div>
             </div>
-            <button>Search</button>
           </div>
           <div className="listResult">
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
             <SearchItem />
           </div>
         </div>
       </div>
-     
     </div>
-    
   )
 }
 
 export default List;
-

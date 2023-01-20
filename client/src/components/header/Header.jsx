@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPlane, faTaxi, faCar, faMagnet, faCalendarDays, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ type}) => {
     const [destination, setDestination] = useState()
     const [openDate, setOpenDate] = useState(false)
     const [date, setDate] = useState([
