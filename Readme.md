@@ -1,17 +1,17 @@
-#Api
+# Api
 
-# the Api end point for the website
+#the Api end point for the website
 
-#used 
+# used 
 
-# Node Js
-# Mongo Db
-# JSON
+#Node Js
+#Mongo Db
+#JSON
 
 
-#client
+# client
 
-# the user graphical interface for the system.
+#the user graphical interface for the system.
 
-# full frontend resources(HTML,CSS,JS)
+#full frontend resources(HTML,CSS,JS)
 
