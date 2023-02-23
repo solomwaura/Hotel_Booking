@@ -1,30 +1,36 @@
 import React from 'react'
+import useFetch from '../../hooks/useFetch';
 import './hotelList.css';
 
 const HotelList = () => {
+    const {data,loading} = useFetch("http://localhost:4550/api/hotels/countByType")
+    console.log(data);
+
+    const images = [
+        require('./img/hotel.jpg'),
+        require('./img/resort.jpg'),
+        require('./img/villa.jpg')
+    ]
+
   return (
-    <div className='hList'>
-        <div className="hListItem">
-            <img src={require('./img/hotel.jpg')} alt="" className='hListImg'/>
-            <div className="hListTitle">
-                <h2>Hotels</h2>
-                <h4>223 Hotels  </h4>
+    <div className='hList' >
+        { loading ?(
+        "loading"):(
+        <>
+            {data 
+            && images.map((img,i)=>(
+
+            <div className="hListItem" key={i}>
+                <img src={img} alt="" className='hListImg'/>
+                <div className="hListTitle">
+                    <h2>{data[i]?.type}</h2>
+                    <h4>{data[i]?.count} {data[i]?.type}  </h4>
+                </div>
             </div>
-        </div>
-        <div className="hListItem">
-            <img src={require('./img/resort.jpg')} alt="" className='hListImg'/>
-            <div className="hListTitle">
-                <h2>Resorts</h2>
-                <h4>223 Resorts  </h4>
-            </div>
-        </div>
-        <div className="hListItem">
-            <img src={require('./img/villa.jpg')} alt="" className='hListImg'/>
-            <div className="hListTitle">
-                <h2>Villas</h2>
-                <h4>223 Villas  </h4>
-            </div>
-        </div>
+            ))};
+        
+        </>
+        )};
     </div>
   )
 }
