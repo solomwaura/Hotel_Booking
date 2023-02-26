@@ -1,6 +1,7 @@
 # Api
 
 #the Api end point for the website
+#api fetch cross origin error solved by cors module
 
 # used 
 
