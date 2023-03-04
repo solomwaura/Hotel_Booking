@@ -1,7 +1,7 @@
 import React from 'react'
 import './header.css';
 import type from 'react';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -9,11 +9,13 @@ import {format} from "date-fns"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPlane, faTaxi, faCar, faMagnet, faCalendarDays, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
+import { SearchContext } from '../../utilities/SearchContext';
+import { AuthContext } from '../../utilities/AuthContext';
 
 const Header = ({ type}) => {
     const [destination, setDestination] = useState()
     const [openDate, setOpenDate] = useState(false)
-    const [date, setDate] = useState([
+    const [dates, setDates] = useState([
         {
           startDate: new Date(),
           endDate: new Date(),
@@ -29,6 +31,7 @@ const Header = ({ type}) => {
     })
 
     const navigate =  useNavigate();
+    const { user } = useContext(AuthContext);
 
     const handleOption = (name,operation)=>{
         setOptions(prev=>{return{
@@ -36,8 +39,11 @@ const Header = ({ type}) => {
         } })
     }
 
+    const {dispatch} = useContext(SearchContext)
+
     const handleSearch = ()=>{
-        navigate('/hotels',{state : {destination,date,options}});
+        dispatch({type:"NEW_SEARCH",payload:{destination,dates,options}});
+        navigate('/hotels',{state : {destination,dates,options}});
     }
   return (
     <div className='header'>
@@ -69,7 +75,7 @@ const Header = ({ type}) => {
             <>
             <h3 className="headerTitle">A lifetime full of Happynes? It's Marvelant.</h3>
             <p className='headerExp'>Get great discounts. By making a free Booking. </p>
-            <button className="headerBtn">Sign Up / Sign In</button>
+            {!user && <button className="headerBtn">Sign Up / Sign In</button>}
             <div className="headerSearch">
                 <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faBed} className="headerIcon"/>
@@ -79,13 +85,13 @@ const Header = ({ type}) => {
                 </div>
                 <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faCalendarDays} className="headerIcon"/>
-                    <span className="headerSearchText" onClick={()=> setOpenDate(!openDate)}>{`${format(date[0].startDate, "MM/dd/yyyy")} to 
-                    ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                    <span className="headerSearchText" onClick={()=> setOpenDate(!openDate)}>{`${format(dates[0].startDate, "MM/dd/yyyy")} to 
+                    ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
                    {openDate && <DateRange
                         editableDateInputs={true}
-                        onChange={item => setDate([item.selection])}
+                        onChange={item => setDates([item.selection])}
                         moveRangeOnFirstSelection={false}
-                        ranges={date}
+                        ranges={dates}
                         className="date"
                         minDate={new Date()}
                         />}
