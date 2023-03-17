@@ -44,6 +44,6 @@ export const login = async (req, res, next) => {
       .status(200)
       .json({ details: { ...otherDetails }, isAdmin });
   } catch (err) {
-    next(err);
-  }
+    next(err);  
+  }   
 };

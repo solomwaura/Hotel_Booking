@@ -22,7 +22,6 @@ const Home = () => {
           <Favourites />
 
           <Mail />
-
           <Footer />
         </div>
         
