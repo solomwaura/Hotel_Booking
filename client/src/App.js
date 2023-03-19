@@ -12,6 +12,7 @@ import List from './pages/list/List';
 import Hotel from './pages/hotel/Hotel';
 import Login from "./pages/login/Login";
 import Reserve from "./components/reserve/Reserve";
+import { Register } from "./pages/register/Register";
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/hotels" element={<List />}></Route>
           <Route path="/hotels/:id" element={<Hotel />}> </Route>
           <Route path="/login" element={<Login />}> </Route>
+          <Route path="/register" element={<Register />}> </Route>
           <Route path="/reserve" element={<Reserve />}> </Route>
         </Routes>
     </Router>

@@ -1,0 +1,43 @@
+.register-form{
+    margin: 25px auto;
+    width: 30vw;
+    padding: 20px 30px;
+    background-color: rgb(48, 48, 249);
+    border: 1px solid rgb(98, 233, 98);
+    border-radius: 10px;
+}
+.register-form h3{
+    text-align: center;
+    padding: 5px 0px;
+}
+form{
+    margin: 0 auto;
+    width: fit-content;
+}
+.form-group{
+    padding: 5px;
+}
+label{
+    display: block;
+    padding: 3px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+input{
+    padding: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+#register{
+    background-color: rgb(98, 233, 98);
+    padding: 20px 30px;
+    color: white;
+    cursor: pointer;
+}
+#link{
+    color: white;
+    padding: 5px;
+}

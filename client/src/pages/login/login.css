@@ -3,6 +3,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(61, 61, 252);
+    max-width: 300px;
+    margin: 50px auto;
+    max-height: 50vh;
+    border-radius: 10px;
+    border: 1px solid rgb(89, 214, 89);
   }
   
   .lContainer {
@@ -19,7 +25,7 @@
   .lButton {
     border: none;
     padding: 10px 20px;
-    background-color: #0071c2;
+    background-color: #24dc6a;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -29,4 +35,8 @@
   .lButton:disabled{
     background-color: #0071c28c;
     cursor: not-allowed;
+  }
+  #link{
+    color: white;
+    padding: 5px;
   }

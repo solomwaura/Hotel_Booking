@@ -38,16 +38,17 @@ const Login = () => {
         <input
           type="text" placeholder="username" id="username"
           onChange={handleChange} className="lInput"
-        />
+          required/>
         <input
           type="password" placeholder="password"
           id="password"
           onChange={handleChange} className="lInput"
-        />
+        required/>
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login
         </button>
         {error && <span>{error.message}</span>}
+        <p>Don't have an account? <span><a href="/register" id="link">Register</a></span></p>
       </div>
     </div>
   );
