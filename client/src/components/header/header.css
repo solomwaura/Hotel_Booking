@@ -46,6 +46,11 @@
     background-color: rgb(35, 35, 131);
 }
 
+.headerBtn a{
+    color: white;
+    text-decoration: none;
+}
+
 .headerSearch{
     height: 30px;
     display: flex;

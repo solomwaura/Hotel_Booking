@@ -12,8 +12,8 @@ const Navbar = ()=> {
                     <span className="logo">Hotel Booking</span>
                 </Link>
                 {user ? user.username : (<div className="navItems">
-                    <button className="navButton">Register</button>
-                    <button className="navButton">Login</button>
+                    <button className="navButton" > <a href="/register">Register</a> </button>
+                    <button className="navButton"> <a href="/login">Login</a></button>
                 </div>)}
             </div>
         </div>

@@ -75,7 +75,7 @@ const Header = ({ type}) => {
             <>
             <h3 className="headerTitle">A lifetime full of Happynes? It's Marvelant.</h3>
             <p className='headerExp'>Get great discounts. By making a free Booking. </p>
-            {!user && <button className="headerBtn">Sign Up / Sign In</button>}
+            {!user && <button className="headerBtn"> <a href="/login">Sign Up / Sign In</a></button>}
             <div className="headerSearch">
                 <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faBed} className="headerIcon"/>

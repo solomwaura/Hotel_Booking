@@ -7,6 +7,7 @@ import axios from 'axios';
 
 export const Register = () => {
 
+    const navigate = useNavigate()
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [country, setCountry] = useState('');
@@ -20,7 +21,7 @@ export const Register = () => {
         try {
           const response = await axios.post('/auth/register', user);
           console.log(response.data);
-          alert('Registration successful!');
+          navigate("/login")
         } catch (error) {
           console.log(error);
           alert('Registration failed!');
